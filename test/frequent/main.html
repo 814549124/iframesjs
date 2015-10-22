@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试</title>
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../iframes.js"></script>
+
+	<style type="text/css">
+		div{
+			float: left;
+			width: 400px;
+		}
+	</style>
+</head>
+<body>
+<h1>子窗口向父窗口传递消息,父窗口接收到后,回传给子窗口,循环100遍,两秒开始!</h1>
+<div id="div"></div>
+<div><iframe src="child_iframe.html" name="iframe1" id="iframe1"></iframe></div>
+<script type="text/javascript">
+	var i = 0;
+	var jdiv = $("#div");
+	message.on("test",function(data){
+		jdiv.append(data.text+"<br>");
+		if (i++ < 100) {
+			setTimeout(function(){
+				message.down("iframe1","test",{text:"父:"+i});
+			},1000);
+		};
+	});
+</script>
+</body>
+</html>

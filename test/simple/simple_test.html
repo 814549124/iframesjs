@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>测试</title>
+	<script>document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')</script>
+	<script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="../../iframes.js"></script>
+</head>
+<body>
+<h1>简单的测试子向父窗口传递,然后父向子窗口传递,都显示在页面上</h1>
+<p>我从子窗口收到:<span></span></p>
+<br>
+<br>
+<br>
+<iframe src="frame_simple_test.html" width="400" height="400" name="iframe_id" id="iframe_id"></iframe>
+<script type="text/javascript">
+	message.on("up",function(data){
+		$("span").html(data.text);
+
+		message.down("iframe_id","down",{text:"aabb"});
+	});
+</script>
+</body>
+</html>
