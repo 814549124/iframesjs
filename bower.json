@@ -1,0 +1,16 @@
+{
+  "name": "hjj-iframes",
+  "homepage": "https://github.com/814549124/iframesjs",
+  "authors": [
+    "jack <814549124@qq.com>"
+  ],
+  "description": "各个窗口的信息交流",
+  "main": "iframes.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "iframe"
+  ],
+  "license": "MIT"
+}
